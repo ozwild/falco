@@ -1,6 +1,6 @@
 <!-- NavBar -->
 
-@include('layout.partials.navbar')
+@include('layout.themes.default.partials.navbar')
 
 <div class="row">
     <div class="col s12">
@@ -12,6 +12,9 @@
         <!-- Main content -->
         <main>
             <div class="container">
+
+                @include('layout.themes.default.partials.breadcrumbs')
+
                 {{ $slot }}
             </div>
         </main>

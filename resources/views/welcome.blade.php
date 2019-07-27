@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Artists For Hire
                 </div>
 
                 <div class="links">

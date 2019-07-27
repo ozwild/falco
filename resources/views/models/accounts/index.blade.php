@@ -1,7 +1,7 @@
 @extends('layout.master')
 @section('content')
 
-    <h1>Accounts</h1>
+    <h5>Accounts</h5>
 
     <a class="right btn-floating waves-effect btn" href="{{ route('accounts.create') }}">
         <i class="material-icons">add</i>

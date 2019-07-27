@@ -7,10 +7,13 @@
         $type = isset($type) ? $type : 'text';
         $notes = isset($notes) ? $notes : null;
 
-        echo html()->label($label, $name);
+        /*echo html()->label($label, $name);*/
 
         echo html()->input($type, $name)
-            ->attribute('placeholder', $placeholder);
+            ->attributes([
+                'placeholder' => $placeholder,
+                'caption' => $label
+            ]);
 
         if ($notes) {
             echo html()->element('small')

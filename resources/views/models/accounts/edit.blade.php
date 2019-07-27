@@ -1,5 +1,9 @@
 @extends('layout.master')
 
+@push('breadcrumbs')
+    <a href="{{ route('accounts.index') }}" class="breadcrumb">Accounts</a>
+@endpush
+
 @section('content')
 
     <h5>Account Edit</h5>

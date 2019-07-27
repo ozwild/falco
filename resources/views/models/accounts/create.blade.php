@@ -1,43 +1,53 @@
 @extends('layout.master')
 
+@push('breadcrumbs')
+    <a href="{{ route('accounts.index') }}" class="breadcrumb">Accounts</a>
+@endpush
+
 @section('content')
 
-    <h1>New Account</h1>
+    <h5>New Account</h5>
 
-    {{ html()->form('post',route('accounts.store'))->open() }}
+    <div class="divider"></div>
 
-    @php
-        $fields = [
-            [
-                'component' => 'components.input-control',
-                'name' => 'name',
-                'label' => 'Name',
-                'placeholder' => 'Name of your act'
-            ],
-            [
-                'component' => 'components.textarea-control',
-                'name' => 'description',
-                'label' => 'Description',
-                'placeholder' => 'Name of your act2'
-            ],
-            [
-                'component' => 'components.input-control',
-                'type'=>'email',
-                'name' => 'email',
-                'label' => 'Email',
-                'placeholder' => 'Professional email address',
-                'notes'=>'Used for notifications'
-            ],
-        ];
-    @endphp
+    <div class="section">
 
-    @foreach($fields as $field)
-        @php $component = array_shift($field); @endphp
-        @component($component, $field) @endcomponent
-    @endforeach
+        {{ html()->form('post',route('accounts.store'))->open() }}
 
-    @component('components.submit-button') Submit @endcomponent
+        @php
+            $fields = [
+                [
+                    'component' => 'components.input-control',
+                    'name' => 'name',
+                    'label' => 'Name',
+                    'placeholder' => 'Name of your act'
+                ],
+                [
+                    'component' => 'components.textarea-control',
+                    'name' => 'description',
+                    'label' => 'Description',
+                    'placeholder' => 'Name of your act2'
+                ],
+                [
+                    'component' => 'components.input-control',
+                    'type'=>'email',
+                    'name' => 'email',
+                    'label' => 'Email',
+                    'placeholder' => 'Professional email address',
+                    'notes'=>'Used for notifications'
+                ],
+            ];
+        @endphp
 
-    {{ html()->form()->close() }}
+        @foreach($fields as $field)
+            @php $component = array_shift($field); @endphp
+            @component($component, $field) @endcomponent
+        @endforeach
+
+        @component('components.submit-button') Submit @endcomponent
+
+        {{ html()->form()->close() }}
+
+    </div>
 
 @endsection
