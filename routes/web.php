@@ -14,3 +14,23 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('accounts','AccountController')
+    ->names([
+        'create'=>'accounts.create',
+        'show'=>'accounts.show',
+        'edit'=>'accounts.edit',
+        'update'=>'accounts.update',
+        'store'=>'accounts.store',
+        'delete'=>'accounts.delete'
+    ]);
+
+Route::resource('users','UserController')
+    ->names([
+        'create'=>'users.create',
+        'show'=>'users.show',
+        'edit'=>'users.edit',
+        'update'=>'users.update',
+        'store'=>'users.store',
+        'delete'=>'users.delete'
+    ]);
