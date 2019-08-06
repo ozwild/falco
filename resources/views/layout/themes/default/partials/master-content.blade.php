@@ -2,21 +2,17 @@
 
 @include('layout.themes.default.partials.navbar')
 
-<div class="row">
-    <div class="col s12">
-        <!-- Sidebar -->
+@include('layout.themes.default.partials.sidebar')
 
-    </div>
-    {{--<div class="col s12 m8 l9">--}}
-    <div class="col s12">
-        <!-- Main content -->
-        <main>
-            <div class="container">
+@include('layout.themes.default.partials.breadcrumbs')
 
-                @include('layout.themes.default.partials.breadcrumbs')
+<main>
 
-                {{ $slot }}
-            </div>
-        </main>
-    </div>
-</div>
+    @include('layout.themes.default.partials.header')
+
+    <br>
+    <br>
+
+    {{ $slot }}
+
+</main>

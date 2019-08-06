@@ -1,61 +1,70 @@
 @extends('layout.master')
 
 @push('breadcrumbs')
-    <a href="{{ route('users.index') }}" class="breadcrumb">Users</a>
+    <a href="{{ route('users.index') }}" class="breadcrumb">{{ trans_choice('labels.user', TC_PLURAL) }}</a>
 @endpush
 
 @section('content')
 
-    <h5>New Account</h5>
+    <div class="container">
+        <h5>{{ __('titles.create', ['resource'=> trans_choice('labels.user',TC_SINGULAR) ]) }}</h5>
+    </div>
 
-    <div class="divider"></div>
+    <div class="container container-switchable">
+        <div class="section">
 
-    <div class="section">
+            {{ html()->form('post',route('users.store'))->open() }}
 
-        {{ html()->form('post',route('accounts.store'))->open() }}
+            @php
+                $fields = [
+                    [
+                        'component' => 'components.input-control',
+                        'name' => 'first_name',
+                        'label' => __('labels.first_name'),
+                        'placeholder' => __('Enter your name')
+                    ],
+                    [
+                        'component' => 'components.input-control',
+                        'name' => 'last_name',
+                        'label' => __('labels.last_name'),
+                        'placeholder' => __('Enter your last name')
+                    ],
+                    [
+                        'component' => 'components.input-control',
+                        'type'=>'email',
+                        'name' => 'email',
+                        'label' => __('labels.email'),
+                        'placeholder' => __('Enter your email address'),
+                        'notes'=>__('Used for notifications')
+                    ],
+                    [
+                        'component' => 'components.input-control',
+                        'type'=>'password',
+                        'name' => 'password',
+                        'label' => __("labels.password"),
+                        'placeholder' => __('A secure password'),
+                        'notes'=> __("passwords.hint")
+                    ],
+                    [
+                        'component' => 'components.input-control',
+                        'type'=>'password',
+                        'name' => 'password_confirmation',
+                        'label' => __('labels.password_confirmation'),
+                        'placeholder' => __('Confirm the password'),
+                    ],
+                ];
+            @endphp
 
-        @php
-            $fields = [
-                [
-                    'component' => 'components.input-control',
-                    'name' => 'name',
-                    'label' => 'Name',
-                    'placeholder' => 'Name of your act'
-                ],
-                [
-                    'component' => 'components.input-control',
-                    'type'=>'email',
-                    'name' => 'email',
-                    'label' => 'Email',
-                    'placeholder' => 'Professional email address',
-                    'notes'=>'Used for notifications'
-                ],
-                [
-                    'component' => 'components.input-control',
-                    'type'=>'password',
-                    'name' => 'password',
-                    'label' => 'Password',
-                    'placeholder' => 'A secure password',
-                    'notes'=>'A secure password includes numbers letters and symbols'
-                ],
-                [
-                    'component' => 'components.input-control',
-                    'type'=>'password',
-                    'name' => 'password_confirmation',
-                    'label' => 'Password Confirmation',
-                    'placeholder' => 'Confirm the password',
-                ],
-            ];
-        @endphp
+            @foreach($fields as $field)
+                @php $component = array_shift($field); @endphp
+                @component($component, $field) @endcomponent
+            @endforeach
 
-        @foreach($fields as $field)
-            @php $component = array_shift($field); @endphp
-            @component($component, $field) @endcomponent
-        @endforeach
+            @component('components.submit-button') @lang("labels.store") @endcomponent
 
-        @component('components.submit-button') Submit @endcomponent
-
-    {{ html()->form()->close() }}
+            {{ html()->form()->close() }}
+        </div>
+    </div>
 
 @endsection
 

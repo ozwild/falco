@@ -53,12 +53,13 @@ class AccountController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\Account $account
-     * @return \Illuminate\Http\Response
+     * @param Account $account
+     * @return Response
      */
     public function show(Account $account)
     {
-        //
+        $account->load('managers');
+        return view('models.accounts.show', compact('account'));
     }
 
     /**

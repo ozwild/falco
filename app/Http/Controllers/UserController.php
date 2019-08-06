@@ -14,11 +14,19 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param Request $request
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::paginate(50);
+        $users = User::query();
+
+        if($accountManagersOnly = $request->get('managers')){
+            $users->managers();
+        }
+
+        $users = $users->paginate(50);
+
         return view('models.users.index', compact('users'));
     }
 
@@ -58,7 +66,8 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        $user->load('accounts');
+        return view('models.users.show', compact('user'));
     }
 
     /**

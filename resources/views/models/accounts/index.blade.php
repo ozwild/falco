@@ -1,46 +1,76 @@
 @extends('layout.master')
+
+@push('breadcrumbs')
+    <a href="{{ route('accounts.index') }}" class="breadcrumb">{{ trans_choice('labels.account', TC_PLURAL) }}</a>
+@endpush
+
 @section('content')
 
-    <h5>Accounts</h5>
+    <div class="container container-switchable">
 
-    <a class="right btn-floating waves-effect btn" href="{{ route('accounts.create') }}">
-        <i class="material-icons">add</i>
-    </a>
+        <div class="card">
+            <div class="card-content">
 
-    <table class="highlight responsive-table">
-        <thead>
-        <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Email</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach($accounts as $account)
-            <tr>
-                <td>
-                    <a href="{{ route('accounts.edit',$account->id) }}">
-                        {{ $account->name }}
-                    </a>
-                </td>
-                <td>{{ $account->description }}</td>
-                <td>{{ $account->email }}</td>
-                <td>
+                <div class="row">
+                    <div class="col s6">
+                        <h3 class="page-title">{{ __('titles.index', ['resource'=> trans_choice('labels.account',TC_PLURAL) ]) }}</h3>
+                    </div>
+                    <div class="col s6 text-right">
+                        <a class="{{ html_class("button.basic") }} right" href="{{ route('accounts.create') }}"
+                           title="{{ __('captions.create', ['resource'=> trans_choice('models.account',TC_SINGULAR)])  }}">
+                            @lang("labels.add")
+                            <i class="material-icons right">add</i>
+                        </a>
+                    </div>
+                </div>
 
-                    <a href="{{ route('accounts.edit',$account->id) }}" class="btn btn-flat">
-                        <i class="material-icons">edit</i>
-                    </a>
+                <table class="highlight responsive-table">
+                    <thead>
+                    <tr>
+                        <th>@lang('labels.name')</th>
+                        <th>@lang('labels.description')</th>
+                        <th>@lang('labels.email')</th>
+                        <th>{{ trans_choice('labels.rating', TC_SINGULAR) }}</th>
+                        <th>@lang('labels.actions')</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($accounts as $account)
+                        <tr>
+                            <td>
+                                <a href="{{ route('accounts.show',$account->id) }}">
+                                    {{ $account->name }}
+                                </a>
+                            </td>
+                            <td class="ridiculous">{{ $account->description }}</td>
+                            <td>{{ $account->email }}</td>
+                            <td> @include('models.ratings.partials.stars',['rating'=>$account->rating->rating]) </td>
+                            <td class="text-center">
 
-                    {{ html()->form('delete',route('accounts.destroy',$account->id))->open() }}
-                    <button class="btn btn-flat">
-                        <i class="material-icons">delete</i>
-                    </button>
-                    {{ html()->form()->close() }}
+                                <a href="{{ route('accounts.edit',$account->id) }}"
+                                   class="{{ html_class("button.flat") }}"
+                                   title="{{ __('captions.edit', ['resource'=> trans_choice('models.account',TC_SINGULAR)])  }}">
+                                    <i class="material-icons">edit</i>
+                                </a>
 
-                </td>
-            </tr>
-        @endforeach
-        </tbody>
-    </table>
+                                {{ html()->form('delete',route('accounts.destroy',$account->id))->open() }}
+                                <button class="{{ html_class("button.flat") }}"
+                                        title="{{ __('captions.delete', ['resource'=> trans_choice('models.account',TC_SINGULAR)])  }}">
+                                    <i class="material-icons">delete</i>
+                                </button>
+                                {{ html()->form()->close() }}
+
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+
+                {{ $accounts->links() }}
+
+            </div>
+        </div>
+
+    </div>
+
 @endsection

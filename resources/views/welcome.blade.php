@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>{{ config('app.name') }}</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -65,15 +65,15 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
+            @if (!Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/home') }}">@lang('labels.home')</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
+                        <a href="{{ url('login') }}">@lang('labels.login')</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                            <a href="{{ route('register') }}">@lang('labels.register')</a>
                         @endif
                     @endauth
                 </div>
@@ -81,12 +81,12 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Artists For Hire
+                    {{ config('app.name') }}
                 </div>
 
                 <div class="links">
-                    <a href="{{ url('users') }}">Users</a>
-                    <a href="{{ url('accounts') }}">Accounts</a>
+                    <a href="{{ url('users') }}">{{ trans_choice("labels.user", TC_PLURAL) }}</a>
+                    <a href="{{ url('accounts') }}">{{ trans_choice("labels.account", TC_PLURAL) }}</a>
                 </div>
             </div>
         </div>
