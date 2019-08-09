@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('layout.themes.admin.master')
 
 @push('breadcrumbs')
     <a href="{{ route('users.index') }}" class="breadcrumb">{{ trans_choice('labels.user', TC_PLURAL) }}</a>

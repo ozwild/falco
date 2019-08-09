@@ -26,6 +26,9 @@ class About extends Model
         'about'
     ];
 
-    //@todo resolve polymorphic ownership
+    public function aboutable()
+    {
+        return $this->morphTo();
+    }
 
 }

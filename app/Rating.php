@@ -20,6 +20,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Rating whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Rating whereRating($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Rating whereUpdatedAt($value)
+ * @property int $id
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Rating whereId($value)
  */
 class Rating extends Model
 {

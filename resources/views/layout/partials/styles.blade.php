@@ -1,4 +1,7 @@
-<link rel="stylesheet" href="{{ url('css/app.css') }}">
+@push('styles')
+    <link rel="stylesheet" href="{{ url('css/app.css') }}">
+@endpush
 
-<!-- Theme scripts -->
-@include('layout.themes.'.config('theme.active_theme').'.partials.styles')
+@section('styles')
+    @stack('styles')
+@endsection

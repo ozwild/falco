@@ -1,10 +1,15 @@
-<nav>
+<nav class="cyan darken-3">
     <div class="nav-wrapper">
-        <div class="">
+        <div>
 
             {{--<a href="#" class="brand-logo">{{ config('app.name') }}</a>--}}
 
-            <span style="margin: 0 2em;">Insert a catchy slogan here. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+            <ul>
+                <li>
+                    <a class="hide-on-med-and-down" href="#">Insert a catchy slogan here. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
+                </li>
+            </ul>
+
 
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="{{ route('accounts.index') }}">{{ trans_choice('labels.account',TC_PLURAL) }}</a></li>

@@ -9,10 +9,14 @@
     </div>
 
     <div class="row">
-        <div class="col s6">
-            <a href="#"><h1 class="big-brand white-text relative">{{ config('app.name') }}</h1></a>
+        <div class="col s12 l6">
+            <a href="#">
+                <h1 class="big-brand white-text relative hide-on-med-and-down">{{ config('app.name') }}</h1>
+                <h1 class="mobile-brand white-text relative hide-on-med-and-up show-on-medium-and-down  ">{{ config('app.name') }}</h1>
+            </a>
         </div>
-        <div class="col s6 text-right">
+
+        <div class="col s12 l6 text-right hide-on-med-and-down">
             <div>
                 <img src="https://picsum.photos/id/10/2500/1667" width="100" alt="" class="relative">
             </div>
@@ -23,6 +27,7 @@
                 </a>
             </div>
         </div>
+
     </div>
 </div>
 
@@ -46,26 +51,15 @@
     </div>
 </div>
 
-<div style="margin-bottom: 6em;"></div>
+@include('layout.themes.admin.assets.particlejs')
 
 @push('scripts')
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.js"
-            integrity="sha256-icjghcPaibMf1jv4gQIGi5MeWNHem2SispcorCiCfSg=" crossorigin="anonymous"></script>
     <script>
-
-        /**
-         * Header Scripts
-         */
-        particlesJS.load('particles-js', 'assets/particlesjs-config.json', function () {
-            console.log('callback - particles.js config loaded');
-        });
-
         (function () {
 
             var reference = new Image();
             var header = document.getElementById("header-background-picture-1");
             var backgroundCover = document.getElementById("header-background-cover");
-
 
             reference.src = 'https://picsum.photos/1280/740?blur';
             reference.onload = function () {
@@ -104,6 +98,15 @@
             font-size: 6em;
             font-weight: bold;
             margin-left: 1em;
+            display: inline-block;
+            -webkit-animation: text-shadow-drop-center 2.6s 3s both;
+            animation: text-shadow-drop-center 2.6s 2s both;
+        }
+
+        #page-header .mobile-brand {
+            font-size: 4em;
+            font-weight: bold;
+            margin-left: 0.25em;
             display: inline-block;
             -webkit-animation: text-shadow-drop-center 2.6s 3s both;
             animation: text-shadow-drop-center 2.6s 2s both;

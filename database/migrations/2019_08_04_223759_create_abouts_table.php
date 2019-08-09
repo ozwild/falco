@@ -15,8 +15,9 @@ class CreateAboutsTable extends Migration
     {
         Schema::create('abouts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            //@todo make polymorphic
             $table->text('about');
+            $table->unsignedInteger('aboutable_id');
+            $table->string('aboutable_type');
             $table->timestamps();
         });
     }

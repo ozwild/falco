@@ -3,6 +3,8 @@
 define('TC_SINGULAR', 1);
 define('TC_PLURAL', 10);
 
+use Jenssegers\Agent\Agent;
+
 function getThemeClassConfigPrefix()
 {
     return config('theme.active_theme', "");
@@ -30,4 +32,9 @@ function getLocaleText()
 
     return "";
 
+}
+
+function agent()
+{
+    return (new Agent());
 }

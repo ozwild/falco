@@ -15,7 +15,7 @@
 
     @endif
 
-    <li><a href="#!"><h4>Artistica</h4></a></li>
+    <li><a href="#!"><h4>{{ config('app.name') }}</h4></a></li>
     <li>
         <div class="divider"></div>
     </li>
@@ -30,7 +30,7 @@
 
             <li>
                 <a class='dropdown-trigger' href='#'
-                   data-target='language_selection_dropdown'> @include('layout.themes.default.partials.locale_indicator') </a>
+                   data-target='language_selection_dropdown'> @include('layout.themes.admin.partials.locale_indicator') </a>
                 <ul id='language_selection_dropdown' class='dropdown-content'>
                     <li><a href="{{ route('localization','en') }}">English</a></li>
                     <li><a href="{{ route('localization','es') }}">Español</a></li>

@@ -43,6 +43,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Account wherePublished($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Account whereTypeId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Account whereViews($value)
+ * @property-read double $average_score
  */
 class Account extends Model
 {
@@ -144,6 +145,14 @@ class Account extends Model
         return $this->belongsToMany('App\Listing', 'account_listing')
             ->using('App\AccountListing')
             ->withTimestamps();
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphOne
+     */
+    public function about()
+    {
+        return $this->morphOne('App\About', 'aboutable');
     }
 
     protected $appends = [

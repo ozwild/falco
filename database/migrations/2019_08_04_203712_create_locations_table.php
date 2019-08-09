@@ -15,8 +15,8 @@ class CreateLocationsTable extends Migration
     {
         Schema::create('locations', function (Blueprint $table) {
             $table->unsignedInteger('account_id');
-            $table->string('location')->comment('Written location reference, address and whatnot');
-            $table->string('geo_reference')->comment('Coordinates or geo location reference');
+            $table->string('description')->comment('Written location reference, address and whatnot');
+            $table->string('coordinates')->comment('Coordinates, geo location reference');
             $table->integer('work_radius')->comment('in Kilometers')->default(25);
             $table->integer('travel_radius')->comment('in Kilometers')->nullable();
             $table->timestamps();

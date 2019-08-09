@@ -17,6 +17,8 @@ class DatabaseSeeder extends Seeder
             ->call(UserSeeder::class)
             ->call(AccountSeeder::class)
             ->call(ScoresSeeder::class)
-            ->call(AccountManagersSeeder::class);
+            ->call(AccountManagersSeeder::class)
+            ->call(LocationSeeder::class)
+            ->call(AboutSeeder::class);
     }
 }

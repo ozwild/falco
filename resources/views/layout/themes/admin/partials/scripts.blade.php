@@ -1,21 +1,17 @@
-<!-- Compiled and minified JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-<script>
-    $(document).ready(function () {
-        $('.dropdown-trigger').dropdown();
-        $('.collapsible').collapsible();
-    });
-</script>
-
 @push('scripts')
+    <script>
+        $(document).ready(function () {
+            $('.dropdown-trigger').dropdown();
+            $('.collapsible').collapsible();
+        });
+    </script>
     <script>
         (function () {
             var storageKey = 'wide_view_state';
             var $targets = $('.container-switchable');
             var $triggers = $('.container-switchable-switch');
 
-            $triggers.on('mouseup,click', function(event){
+            $triggers.on('mouseup,click', function (event) {
                 event.target.focus = false;
                 event.target.active = false;
                 event.target.hover = false;

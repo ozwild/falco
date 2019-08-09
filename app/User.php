@@ -124,4 +124,12 @@ class User extends Authenticatable
         return $query->has('accounts');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphOne
+     */
+    public function about()
+    {
+        return $this->morphOne('App\About', 'aboutable');
+    }
+
 }

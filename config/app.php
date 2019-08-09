@@ -166,6 +166,7 @@ return [
          * Package Service Providers...
          */
         \Spatie\Html\HtmlServiceProvider::class,
+        \Jenssegers\Agent\AgentServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -231,6 +232,7 @@ return [
          * Package Facades...
          */
         'Html' => \Spatie\Html\Facades\Html::class,
+        'Agent' => \Jenssegers\Agent\Facades\Agent::class,
 
     ],
 

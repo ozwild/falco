@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('layout.themes.admin.master')
 
 @push('breadcrumbs')
     <a href="{{ route('users.index') }}" class="breadcrumb">{{ trans_choice('labels.user', TC_PLURAL) }}</a>
@@ -6,26 +6,25 @@
 
 @section('content')
 
-    <div class="container">
-        <div class="row">
-            <div class="col s6">
-                <h1>{{ __('titles.index', ['resource'=> trans_choice('labels.user',TC_PLURAL) ]) }}</h1>
-            </div>
-            <div class="col s6 text-right">
-
-                <a class="{{ html_class("button.basic") }} right" href="{{ route('users.create') }}"
-                   title="{{ __('captions.create', ['resource'=> trans_choice('models.user',TC_SINGULAR)])  }}">
-                    @lang("labels.add")
-                    <i class="material-icons right">add</i>
-                </a>
-
-            </div>
-        </div>
-    </div>
-
     <div class="container container-switchable">
         <div class="card">
             <div class="card-content">
+
+                @component('components.section-header')
+
+                    {{ __('titles.index', ['resource'=> trans_choice('labels.user',TC_PLURAL) ]) }}
+
+                    @slot('buttons')
+                        <a class="{{ html_class("button.basic") }} right" href="{{ route('users.create') }}"
+                           title="{{ __('captions.create', ['resource'=> trans_choice('models.user',TC_SINGULAR)])  }}">
+                            @lang("labels.add")
+                            <i class="material-icons right">add</i>
+                        </a>
+                    @endslot
+                @endcomponent
+
+                <br>
+                <br>
 
                 <ul class="collapsible z-depth-0">
                     <li>
@@ -33,7 +32,8 @@
                             @lang('labels.filters') <i class="material-icons">check_box</i>
                         </div>
                         <div class="collapsible-body">
-                            <a class="{{ html_class("button.filter") . html_class("button.small") }}" href="{{ route('users.index',["managers"=>true]) }}"
+                            <a class="{{ html_class("button.filter") . html_class("button.small") }}"
+                               href="{{ route('users.index',["managers"=>true]) }}"
                                title="{{ __('captions.filters.managers')  }}">
                                 {{ trans_choice("labels.manager",TC_PLURAL) }}
                             </a>

@@ -53,5 +53,6 @@ class ScoresSeeder extends Seeder
                 $account->updateRating();
 
             });
+
     }
 }
