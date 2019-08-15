@@ -26,16 +26,24 @@ use Illuminate\Database\Eloquent\Model;
 class Listing extends Model
 {
     protected $fillable = [
-        'listing', 'active'
+        'name', 'description', 'active'
     ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     function accounts(){
-        return $this->belongsToMany('App\Account', 'account_listing')
+        return $this->belongsToMany('App\Account', 'account_listings')
             ->using('App\AccountListing')
             ->withTimestamps();
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphOne
+     */
+    public function about()
+    {
+        return $this->morphOne('App\About', 'aboutable');
     }
 
 }

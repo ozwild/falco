@@ -3,6 +3,7 @@
 use App\Account;
 use App\About;
 use App\User;
+use App\Listing;
 use Carbon\Carbon;
 use Faker\Factory;
 use Illuminate\Database\Seeder;
@@ -53,6 +54,25 @@ class AboutSeeder extends Seeder
                     "about" => $aboutDataParagraphs,
                     "aboutable_id" => $userData->id,
                     "aboutable_type" => User::class,
+                    "created_at" => $now,
+                    "updated_at" => $now
+                ];
+            });
+
+        About::insert($inserts->toArray());
+
+        $inserts = DB::table('listings')->get()
+            ->map(function ($listingData) use ($faker, $now) {
+
+                $aboutDataParagraphs = collect($faker->paragraphs(mt_rand(2, 4)))
+                    ->map(function($paragraph){
+                        return "<p>$paragraph</p>";
+                    })->implode("");
+
+                return [
+                    "about" => $aboutDataParagraphs,
+                    "aboutable_id" => $listingData->id,
+                    "aboutable_type" => Listing::class,
                     "created_at" => $now,
                     "updated_at" => $now
                 ];

@@ -4,7 +4,7 @@
     <script>
         $(document).ready(function () {
             var deviceIsMobile = '{{ agent()->isMobile()? "true":"false" }}';
-
+            console.log(deviceIsMobile);
             if (deviceIsMobile !== 'true') {
                 particlesJS.load('particles-js', '/assets/particlesjs-config.json', function () {
                     console.log('callback - particles.js config loaded');

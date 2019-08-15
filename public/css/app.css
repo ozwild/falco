@@ -6,6 +6,66 @@
     position: relative;
 }
 
+.absolute {
+    position: absolute;
+}
+
+.top-right {
+    top: 0;
+    right: 0;
+}
+
+.top-left {
+    top: 0;
+    left: 0;
+}
+
+.bottom-right {
+    bottom: 0;
+    right: 0;
+}
+
+.bottom-left {
+    bottom: 0;
+    left: 0;
+}
+
+.m-1 {
+    margin: 0.5em;
+}
+.m-2{
+    margin: 1em;
+}
+.m-3{
+    margin: 1.5em;
+}
+.m-4{
+    margin: 2em;
+}
+.m-5{
+    margin: 2.5em;
+}
+
+.p-1 {
+    padding: 0.5em;
+}
+.p-2{
+    padding: 1em;
+}
+.p-3{
+    padding: 1.5em;
+}
+.p-4{
+    padding: 2em;
+}
+.p-5{
+    padding: 2.5em;
+}
+
+.pointer{
+    cursor: pointer;
+}
+
 .layer {
     position: absolute;
     width: 100%;
@@ -20,12 +80,19 @@
 
 nav, main {
     position: relative;
-    z-index: 50;
+}
+
+nav {
+    z-index: 101;
+}
+
+main {
+    z-index: 100;
 }
 
 #breadcrumbs-container {
     position: relative;
-    z-index: 900;
+    z-index: 50;
 }
 
 .breadcrumbs-nav {
@@ -110,6 +177,10 @@ nav, main {
 
 .text-center {
     text-align: center;
+}
+
+.bold {
+    font-weight: 500;
 }
 
 .container-switchable-switch.active {
@@ -279,11 +350,57 @@ main > div:first-child {
     color: transparent;
 }
 
-.section-title{
+.section-title {
     font-weight: 300;
 }
 
-.location-map{
+.location-map {
     width: 100%;
     height: 35em;
+}
+
+.grayed{
+    filter: grayscale(0.4);
+    transition: filter 0.3s;
+}
+.card:hover .grayed{
+    filter: grayscale(0);
+}
+
+.theme-hued{
+    position: relative;
+}
+
+.theme-hued > *:not(img) {
+    z-index: 100;
+}
+
+.theme-hued::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*background: rgba(100, 150, 160, 0.2);*/
+    background-image: linear-gradient(120deg, #424242, #00838F);
+    opacity: .7;
+    z-index: 1;
+    transition: opacity 0.3s;
+}
+
+.card:hover .theme-hued::after{
+    opacity: 0;
+}
+
+.card-image{
+    z-index: 1;
+}
+
+.flex{
+    display: flex;
+}
+
+.flex > * {
+    flex: 1 auto;
 }

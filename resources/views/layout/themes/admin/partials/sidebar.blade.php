@@ -30,8 +30,8 @@
 
             <li>
                 <a class='dropdown-trigger' href='#'
-                   data-target='language_selection_dropdown'> @include('layout.themes.admin.partials.locale_indicator') </a>
-                <ul id='language_selection_dropdown' class='dropdown-content'>
+                   data-target='sidebar_language_selection_dropdown'> @include('layout.themes.admin.partials.locale_indicator') </a>
+                <ul id='sidebar_language_selection_dropdown' class='dropdown-content'>
                     <li><a href="{{ route('localization','en') }}">English</a></li>
                     <li><a href="{{ route('localization','es') }}">Español</a></li>
                 </ul>

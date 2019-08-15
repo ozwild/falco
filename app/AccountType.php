@@ -23,6 +23,11 @@ use Illuminate\Database\Eloquent\Model;
  */
 class AccountType extends Model
 {
+
+    protected $fillable = [
+        'type'
+    ];
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

@@ -42,6 +42,7 @@ return [
     "password" => "Contraseña",
     "password_confirmation" => "Confirmacion de Contraseña",
     "manages_accounts" => "Maneja Cuentas",
-    "filters"=>"Filtros",
+    "filters" => "Filtros",
+    "visit" => "Visitar"
 
 ];

@@ -36,3 +36,13 @@ Route::resource('users', 'UserController')
         'store' => 'users.store',
         'delete' => 'users.delete'
     ]);
+
+Route::resource('listings', 'ListingController')
+    ->names([
+        'create' => 'listings.create',
+        'show' => 'listings.show',
+        'edit' => 'listings.edit',
+        'update' => 'listings.update',
+        'store' => 'listings.store',
+        'delete' => 'listings.delete'
+    ]);

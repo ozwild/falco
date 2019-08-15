@@ -17,7 +17,7 @@ class AccountSeeder extends Seeder
         $faker = Factory::create();
         $now = Carbon::now()->toDateTimeString();
 
-        $accountTitles = collect([
+        $sampleTagLines = collect([
             "Music Band",
             "Rock Band",
             "Guitarist and Singer",
@@ -34,8 +34,8 @@ class AccountSeeder extends Seeder
         StartOver:
 
         $inserts = collect()
-            ->pad(30, null)
-            ->reduce(function ($reduction) use ($faker, $now, $accountTitles) {
+            ->pad(68, null)
+            ->reduce(function ($reduction) use ($faker, $now, $sampleTagLines) {
 
                 $type_id = DB::table("account_types")
                     ->inRandomOrder()->first()->id;
@@ -44,7 +44,7 @@ class AccountSeeder extends Seeder
                     [
                         "name" => $faker->company,
                         "description" => $faker->paragraphs(mt_rand(2, 3), true),
-                        "title" => $accountTitles->random(1)->first(),
+                        "tag_line" => $sampleTagLines->random(1)->first(),
                         "email" => $faker->companyEmail,
                         "type_id" => $type_id,
                         "active" => mt_rand(0, 1),
@@ -64,7 +64,6 @@ class AccountSeeder extends Seeder
                 goto StartOver;
             }
         }
-
 
     }
 }

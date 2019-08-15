@@ -43,5 +43,6 @@ return [
     "password_confirmation" => "Password Confirmation",
     "manages_accounts" => "Manages Accounts",
     "filters"=>"Filters",
+    "visit"=>"Visit"
 
 ];

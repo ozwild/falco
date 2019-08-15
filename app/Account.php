@@ -48,7 +48,7 @@ use Illuminate\Database\Eloquent\Model;
 class Account extends Model
 {
     protected $fillable = [
-        'name', 'description', 'email', 'type_id'
+        'name', 'description', 'tag_line', 'email', 'type_id'
     ];
 
     /**
@@ -142,7 +142,7 @@ class Account extends Model
      */
     function listings()
     {
-        return $this->belongsToMany('App\Listing', 'account_listing')
+        return $this->belongsToMany('App\Listing', 'account_listings')
             ->using('App\AccountListing')
             ->withTimestamps();
     }

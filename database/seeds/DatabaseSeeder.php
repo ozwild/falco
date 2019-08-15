@@ -13,12 +13,12 @@ class DatabaseSeeder extends Seeder
     {
         $this
             ->call(RootUserSeeder::class)
-            ->call(AccountTypesSeeder::class)
             ->call(UserSeeder::class)
             ->call(AccountSeeder::class)
             ->call(ScoresSeeder::class)
             ->call(AccountManagersSeeder::class)
             ->call(LocationSeeder::class)
-            ->call(AboutSeeder::class);
+            ->call(AboutSeeder::class)
+            ->call(AccountListingSeeder::class);
     }
 }

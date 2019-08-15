@@ -35,6 +35,12 @@
     <div class="row">
         <div class="col s12 text-right">
 
+            <a class="{{ html_class("button.header") }} " href="{{ route('listings.create') }}"
+               title="{{ __('captions.create', ['resource'=> trans_choice('models.listing',TC_SINGULAR)])  }}">
+                <i class="material-icons left">add</i>
+                @lang("labels.add") {{ trans_choice('labels.listing',TC_SINGULAR) }}
+            </a>
+
             <a class="{{ html_class("button.header") }} " href="{{ route('accounts.create') }}"
                title="{{ __('captions.create', ['resource'=> trans_choice('models.account',TC_SINGULAR)])  }}">
                 @lang("labels.add") {{ trans_choice('labels.account',TC_SINGULAR) }}

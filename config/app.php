@@ -167,6 +167,7 @@ return [
          */
         \Spatie\Html\HtmlServiceProvider::class,
         \Jenssegers\Agent\AgentServiceProvider::class,
+        \Astrotomic\Translatable\TranslatableServiceProvider::class,
 
         /*
          * Application Service Providers...

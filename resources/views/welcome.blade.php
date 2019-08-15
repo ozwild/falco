@@ -61,7 +61,7 @@
 @endpush
 
 @section('content')
-    <div class="flex-center position-ref full-height grey lighten-4 white-text">
+    <div class="flex-center position-ref full-height grey darken-4 white-text">
 
         <div id="particles-js" class="background-layer layer" style="height: 95%"></div>
 

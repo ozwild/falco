@@ -16,8 +16,8 @@
                 <li><a href="{{ route('users.index') }}">{{ trans_choice('labels.user',TC_PLURAL) }}</a></li>
                 <li>
                     <a class='dropdown-trigger' href='#'
-                       data-target='language_selection_dropdown'>{{ App::getLocale() }}</a>
-                    <ul id='language_selection_dropdown' class='dropdown-content'>
+                       data-target='navbar_language_selection_dropdown'>{{ App::getLocale() }}</a>
+                    <ul id='navbar_language_selection_dropdown' class='dropdown-content'>
                         <li><a href="{{ route('localization','en') }}">English</a></li>
                         <li><a href="{{ route('localization','es') }}">Español</a></li>
                     </ul>

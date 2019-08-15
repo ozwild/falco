@@ -46,7 +46,7 @@ class ListingController extends Controller
      */
     public function show(Listing $listing)
     {
-        //
+        return view('models.listings.show', compact('listing'));
     }
 
     /**

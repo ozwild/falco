@@ -44,7 +44,13 @@
                             </td>
                             <td class="ridiculous">{{ $account->description }}</td>
                             <td>{{ $account->email }}</td>
-                            <td> @component('models.ratings.components.stars',['rating'=>$account->rating->rating]) @endcomponent</td>
+                            <td>
+                                @if( $account->rating )
+                                    @component('models.ratings.components.stars',['rating'=>$account->rating->rating]) @endcomponent
+                                @else
+                                    Not rated yet
+                                @endif
+                            </td>
                             <td class="text-center">
 
                                 <a href="{{ route('accounts.edit',$account->id) }}"

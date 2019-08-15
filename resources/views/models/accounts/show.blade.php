@@ -153,6 +153,58 @@
             </div>
         </div>
 
+        <div class="section">
+
+            <div class="card">
+                <div class="card-content truncate">
+
+                    @component('components.section-header')
+                        {{ trans_choice("labels.listing",TC_PLURAL) }}
+                    @endcomponent
+
+                    <table class="highlight">
+                        <thead>
+                        <tr>
+                            <th>@lang('labels.listing')</th>
+                            <th>@lang('labels.email')</th>
+                            <th class="text-center">@lang('labels.actions')</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($account->listings as $listing)
+                            <tr>
+
+                                <td>
+                                    <a href="{{ route('listings.show',$listing->id) }}">
+                                        {{ $listing->name }}
+                                    </a>
+                                </td>
+
+                                <td class="text-center">
+
+                                    <a href="{{ route('listings.edit',$listing->id) }}"
+                                       class="{{ html_class("button.flat") }}"
+                                       title="{{ __('captions.edit', ['resource'=> trans_choice('models.listing',TC_SINGULAR)])  }}">
+                                        <i class="material-icons">edit</i>
+                                    </a>
+
+                                    {{ html()->form('delete',route('listings.destroy',$listing->id))->open() }}
+                                    <button class="{{ html_class("button.flat") }}"
+                                            title="{{ __('captions.delete', ['resource'=> trans_choice('models.listing',TC_SINGULAR)])  }}">
+                                        <i class="material-icons">delete</i>
+                                    </button>
+                                    {{ html()->form()->close() }}
+
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
         <div class="section" id="reviews">
 
             <div class="card">

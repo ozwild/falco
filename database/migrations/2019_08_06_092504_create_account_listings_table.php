@@ -14,7 +14,8 @@ class CreateAccountListingsTable extends Migration
     public function up()
     {
         Schema::create('account_listings', function (Blueprint $table) {
-            $table->unsignedInteger('user_id');
+            $table->bigIncrements('id');
+            $table->unsignedInteger('listing_id');
             $table->unsignedInteger('account_id');
             $table->timestamps();
         });
